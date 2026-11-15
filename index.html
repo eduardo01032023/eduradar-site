@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edu Radar | Grupos de Promoções</title>
+  <meta name="description" content="Grupos gratuitos de promoções no WhatsApp: Pokémon TCG e Achadinhos para casa. Ofertas do Mercado Livre.">
+  <meta property="og:title" content="Edu Radar | Grupos de Promoções">
+  <meta property="og:description" content="Escolha seu grupo e receba as melhores ofertas direto no WhatsApp.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #141a2e;
+      --card-hover: #1b2340;
+      --text: #f2f4fa;
+      --muted: #9aa3bd;
+      --accent: #2ee59d;
+      --whats: #25d366;
+      --border: #242c48;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 18px 32px;
+      background-image: radial-gradient(circle at 50% -10%, rgba(46,229,157,.18), transparent 55%);
+    }
+    main { width: 100%; max-width: 460px; }
+
+    /* Cabeçalho com radar animado */
+    header { text-align: center; margin-bottom: 28px; }
+    .radar {
+      width: 96px; height: 96px; margin: 0 auto 16px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(circle, transparent 30%, rgba(46,229,157,.15) 31%, transparent 33%),
+        radial-gradient(circle, transparent 60%, rgba(46,229,157,.15) 61%, transparent 63%),
+        #0f1a22;
+      box-shadow: 0 0 24px rgba(46,229,157,.35);
+    }
+    .radar::after {
+      content: ""; position: absolute; inset: 0;
+      background: conic-gradient(from 0deg, rgba(46,229,157,.55), transparent 25%);
+      animation: spin 3s linear infinite;
+    }
+    .radar span {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      font-size: 34px; z-index: 1;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .radar::after { animation: none; } }
+
+    h1 { font-size: 1.7rem; letter-spacing: -.02em; }
+    h1 b { color: var(--accent); }
+    .sub { color: var(--muted); margin-top: 6px; font-size: .98rem; line-height: 1.45; }
+
+    .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+    .badge {
+      font-size: .75rem; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 99px; padding: 4px 10px;
+    }
+
+    .badge.free {
+      background: var(--accent); color: #062b14; border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 0 18px rgba(46,229,157,.45);
+    }
+    .badges { align-items: center; }
+    .badge.ml { color: #1a1a1a; background: #ffe600; border-color: #ffe600; font-weight: 700; }
+
+    /* Cards dos grupos */
+    .label { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 4px 10px; }
+    .group {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 12px;
+      text-decoration: none; color: inherit;
+      transition: transform .15s, background .15s, border-color .15s;
+    }
+    .group:hover, .group:focus-visible { background: var(--card-hover); border-color: var(--accent); transform: translateY(-2px); outline: none; }
+    .emoji {
+      flex: 0 0 54px; height: 54px; border-radius: 14px;
+      display: grid; place-items: center; font-size: 28px;
+      background: rgba(46,229,157,.1);
+    }
+    .info { flex: 1; min-width: 0; }
+    .info h2 { font-size: 1.05rem; }
+    .info p { color: var(--muted); font-size: .86rem; margin-top: 3px; line-height: 1.35; }
+    .cta {
+      flex: 0 0 auto;
+      background: var(--whats); color: #062b14;
+      font-weight: 700; font-size: .82rem;
+      padding: 9px 12px; border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .soon { opacity: .55; pointer-events: none; }
+    .soon .cta { background: var(--border); color: var(--muted); }
+
+    /* Como funciona */
+    .how {
+      margin-top: 22px; padding: 16px;
+      border: 1px dashed var(--border); border-radius: 16px;
+      font-size: .88rem; color: var(--muted); line-height: 1.5;
+    }
+    .how strong { color: var(--text); }
+    .how ol { margin: 8px 0 0 18px; }
+
+    .social { display: flex; justify-content: center; margin-top: 22px; }
+    .social a {
+      color: var(--text); text-decoration: none; font-size: .9rem;
+      border: 1px solid var(--border); border-radius: 99px; padding: 8px 16px;
+    }
+    .social a:hover { border-color: var(--accent); }
+
+    footer { margin-top: 26px; text-align: center; color: var(--muted); font-size: .72rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="radar" aria-hidden="true"><span>📡</span></div>
+      <h1>Edu <b>Radar</b></h1>
+      <p class="sub">Promoções caçadas o dia todo.<br>Escolha seu grupo e receba direto no WhatsApp.</p>
+      <div class="badges">
+        <span class="badge free">✅ 100% Gratuito</span>
+        <span class="badge ml">Ofertas do Mercado Livre</span>
+      </div>
+    </header>
+
+    <p class="label">Escolha seu grupo</p>
+
+    <!-- ============================================================
+         EDITE AQUI: troque COLE_O_LINK_... pelo link de convite do
+         grupo (WhatsApp > Info do grupo > Convidar via link).
+         ============================================================ -->
+
+    <a class="group" href="https://chat.whatsapp.com/JlHdmWgDAet2RtluFI3PNW" target="_blank" rel="noopener">
+      <div class="emoji">⚡</div>
+      <div class="info">
+        <h2>Pokémon TCG</h2>
+        <p>Booster Boxes, ETBs, latas e sleeves com preço bom no Mercado Livre.</p>
+      </div>
+      <span class="cta">Entrar</span>
+    </a>
+
+    <a class="group" href="https://chat.whatsapp.com/EqCwTWVfvSz39rJI7lfA7t" target="_blank" rel="noopener">
+      <div class="emoji">🏠</div>
+      <div class="info">
+        <h2>Achadinhos para Casa</h2>
+        <p>Utilidades, organização e cozinha com desconto no Mercado Livre.</p>
+      </div>
+      <span class="cta">Entrar</span>
+    </a>
+
+    <!-- Modelo para um grupo futuro: copie o bloco acima, ou apague
+         a classe "soon" deste quando o grupo existir. -->
+    <a class="group soon" href="#" aria-disabled="true">
+      <div class="emoji">🔜</div>
+      <div class="info">
+        <h2>Novos grupos em breve</h2>
+        <p>Mais nichos chegando.</p>
+      </div>
+      <span class="cta">Em breve</span>
+    </a>
+
+    <div class="how">
+      <strong>Como funciona</strong>
+      <ol>
+        <li>Toque no grupo do seu interesse.</li>
+        <li>Entre pelo WhatsApp (só admins enviam mensagens, sem spam).</li>
+        <li>Recebeu uma oferta boa? É só tocar no link e comprar.</li>
+      </ol>
+    </div>
+
+    <div class="social">
+      <a href="https://www.instagram.com/eduradar_br/" target="_blank" rel="noopener">📸 Siga @eduradar_br</a>
+    </div>
+
+    <footer>
+      Os links divulgados são de afiliado do Mercado Livre: posso receber comissão pelas compras, sem custo extra para você.<br>
+      Preços e estoque podem mudar a qualquer momento.<br><br>
+      Usamos cookies da Meta (Pixel) para medir os resultados dos nossos anúncios.
+      A Meta pode receber dados de navegação, como IP e páginas visitadas.
+      Não pedimos nem guardamos nome, telefone ou e-mail nesta página.<br><br>
+      © <span id="y"></span> Edu Radar
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // ============================================================
+    // EDITE AQUI: cole o ID do seu Pixel da Meta (só números).
+    // Gerenciador de Eventos da Meta > Fontes de dados > seu Pixel.
+    // Enquanto estiver "SEU_PIXEL_ID", nada é carregado.
+    // ============================================================
+    var PIXEL_ID = 'SEU_PIXEL_ID';
+
+    function loadPixel() {
+      if (!/^\d+$/.test(PIXEL_ID) || window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', PIXEL_ID);
+      fbq('track', 'PageView');
+    }
+
+    // Conta um "Lead" quando alguém clica para entrar num grupo
+    document.querySelectorAll('a.group:not(.soon)').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.fbq) fbq('track', 'Lead', { content_name: a.querySelector('h2').textContent });
+      });
+    });
+
+    loadPixel();
+  </script>
+</body>
+</html>
